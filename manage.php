@@ -39,6 +39,7 @@ include_once "base.php";
     <td>類別</td>
     <td>說明</td>
     <td>上傳時間</td>
+    <td>操作</td>
 </tr>
 <?php
 $all=all('file_info');
@@ -52,6 +53,10 @@ foreach($all as $row){
     <td><?=$row['type'];?></td>
     <td><?=$row['note'];?></td>
     <td><?=$row['upload_time'];?></td>
+    <td>
+        <a class="btn" href="del_file.php?id=<?=$row['id'];?>">刪除</a>
+        <a class="btn" href="update_file.php?id=<?=$row['id'];?>">更新</a>
+    </td>
 </tr>
 <?php
 }
