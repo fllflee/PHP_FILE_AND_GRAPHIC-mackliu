@@ -23,13 +23,15 @@ if(!empty($_POST['submit'])){
                 $sub='.gif';            
             break;
         }
+
+        unlink($source['path']);
+        
         $name="mack".date("YmdHis").$sub;
 
         $source['filename']=$name;
         $source['type']=$_FILES['upload']['type'];
         $source['path']="img/".$name;
 
-        unlink($source['path']);
         move_uploaded_file($_FILES['upload']['tmp_name'],"img/$name");
     }
 

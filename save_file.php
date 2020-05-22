@@ -24,6 +24,7 @@ if($_FILES['upload']['error']==0){
        'filename'=>$name,
        'type'=>$_FILES['upload']['type'],
        'note'=>$_POST['note'],
+       'album'=>$_POST['album'],
        'path'=>'img/'.$name
 
    ];
