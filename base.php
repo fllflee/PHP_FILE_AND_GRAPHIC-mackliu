@@ -1,7 +1,7 @@
 <?php
 $dsn="mysql:host=localhost;charset=utf8;dbname=files";
-$pdo=new PDO();
-date_default_timezone_set("Asia/Taipe");
+$pdo=new PDO($dsn,'root','');
+date_default_timezone_set("Asia/Taipei");
 
 
 function all($table,...$arg){
@@ -40,7 +40,7 @@ function find($table,$arg){
         $sql=$sql . " where id='".$arg."'";
     }
 
-    return $pdo->query($sql)->fetch();
+    return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 
 }
 function nums($table,...$arg){
@@ -77,11 +77,11 @@ function save($table,$arg){
     }else{
         //insert
 
-        $sql="insert into $table (`".implode("`,`",array_keys($arg))."`) values('".implode("','")."')";
+        $sql="insert into $table (`".implode("`,`",array_keys($arg))."`) values('".implode("','",$arg)."')";
 
     }
 
-
+    echo $sql;
     return $pdo->exec($sql);
 
 }
