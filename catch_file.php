@@ -27,7 +27,8 @@ if($_FILES['upload']['error']==0){
 
 
    move_uploaded_file($_FILES['upload']['tmp_name'],"img/".$name); 
+
+   header("location:upload.php?filename=$name");
 }
 ?>
 
-<img src="img/<?=$name;?>" alt="">

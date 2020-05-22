@@ -30,6 +30,17 @@
 
 <!----建立一個連結來查看上傳後的圖檔---->  
 
+<?php
+
+if(!empty($_GET['filename'])){
+    $name=$_GET['filename'];
+
+?>
+    <img src="img/<?=$name;?>" alt="" style="width:200px">
+<?php
+}
+
+?>
 
 </body>
 </html>
