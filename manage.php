@@ -54,7 +54,7 @@ foreach($all as $row){
     <td><?=$row['note'];?></td>
     <td><?=$row['upload_time'];?></td>
     <td>
-        <a class="btn" href="del_file.php?id=<?=$row['id'];?>">刪除</a>
+        <a class="btn" href="confirm.php?id=<?=$row['id'];?>">刪除</a>
         <a class="btn" href="update_file.php?id=<?=$row['id'];?>">更新</a>
     </td>
 </tr>
