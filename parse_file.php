@@ -19,12 +19,25 @@ if(!empty($_FILES['doc']['tmp_name'])){
 
         $file=fopen($path,"r+");
 
+        //$txt=fgets($file);
+        $num=1;
         while(!feof($file)){
             $txt=fgets($file);
-            $font_size=rand(12,24)."px";
-            echo "<div style='margin:10px;font-size:$font_size'>".$txt."</div>";
+            $tmp=explode(",",$txt);
+            if(count($tmp)==4){
+                $content['subject']=$tmp[0];
+                $content['description']=$tmp[1];
+                $content['create_date']=$tmp[2];
+                $content['due_date']=$tmp[3];
+                //print_r($tmp);
+                save("todo_list",$content);
+                //echo "已儲存".$num."筆資料";
+                
+                $num++;
+            }
         }
 
+        to("text-import.php");
         
 
     }else{
